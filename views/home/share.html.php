@@ -25,7 +25,7 @@
 
             <form method="POST" data-abide id="share_form">
               <textarea class="your_message" name="message" required></textarea>
-              <small class="error">Please write a short message to share...</small>
+              <small class="error">Please write a short message to share</small>
               <input type="hidden" name="user_donation_id" value="<?php if (isset($_SESSION['user_donation'])) echo $_SESSION['user_donation']['id']; else echo '' ?>" />
               <input type="submit" value="Send" class="button tiny" />
             </form>

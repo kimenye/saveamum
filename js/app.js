@@ -39,7 +39,7 @@ $(function(){
 					    link: 'http://saveamum.sprout.co.ke/messages/' + data.id,
 					    picture: 'http://saveamum.sprout.co.ke/images/flower.png',
 					    caption: 'I support the SaveAMum Initiative',
-					    description: $('.your_message').val();
+					    description: $('.your_message').val()
 					  },
 					  function(response) {
 					  	debugger;
