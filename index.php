@@ -1,6 +1,11 @@
 <?php
 	require_once('lib/limonade.php');
+	require_once('lib/twitteroauth/twitteroauth.php');
 	date_default_timezone_set('Africa/Nairobi');
+
+	define('TWITTER_OAUTH_CONSUMER_KEY','TJ73brA6QM9LNbqlYVRQQ');
+	define('TWITTER_OAUTH_CONSUMER_SECRET','zDkN1conS5i5K791X6Tz3daosX5D2DWYfDXNxSo4');
+
 
 	# 1. Setting global options of our application
 	function configure()
@@ -44,6 +49,54 @@
 	dispatch('/share', 'share');
 	function share() {
 		return html('home/share.html.php');
+	}
+
+	dispatch('/twitter', 'twitter');
+	function twitter() {
+		session_start();
+ 
+		if(!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empty($_SESSION['oauth_token_secret'])) { 
+			//we are in the callback???		 
+		} else {
+		 
+		    $twoauth = new TwitterOAuth(TWITTER_OAUTH_CONSUMER_KEY,TWITTER_OAUTH_CONSUMER_SECRET);
+		 
+		 	$localhost = preg_match('/^localhost(\:\d+)?/', $_SERVER['HTTP_HOST']);
+			$env =  $localhost ? ENV_DEVELOPMENT : ENV_PRODUCTION;
+		 	$url = $env == ENV_PRODUCTION ? "http://saveamum.sprout.co.ke/callback/" : "http://localhost:8000/callback/";
+
+		    $request_token = $twoauth->getRequestToken($url);
+		 
+		    $_SESSION['oauth_token'] = $request_token['oauth_token'];
+		    $_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+		 
+		    if ($twoauth->http_code == 200) {
+		        $url = $twoauth->getAuthorizeURL($request_token['oauth_token']);
+		        header("Location: " . $url);
+		    } else {
+		        die("oops... something's wrong!");
+		    }
+		}
+	}
+
+	dispatch('/callback', 'callback');
+	function callback() {
+		if(!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empty($_SESSION['oauth_token_secret'])) { 
+		    $twoauth = new TwitterOAuth(TWITTER_OAUTH_CONSUMER_KEY, TWITTER_OAUTH_CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);  
+		    $access_token = $twoauth->getAccessToken($_GET['oauth_verifier']); 
+		    $_SESSION['access_token'] = $access_token; 
+		    $user_info = $twoauth->get('account/verify_credentials'); 
+		 
+
+		    $u = array("type" => "TW", "external_id" => $user_info->id, "email" => "");
+		    $user_id = user_create($u); 
+		    $user = user_find($user_id);
+
+		    // set('user', $user);
+		    $_SESSION['user'] = $user;
+		    // return html('home/index.html.php'); # rendering HTML view
+		    redirect_to('/');
+		}
 	}
 
 

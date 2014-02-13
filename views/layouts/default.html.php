@@ -9,7 +9,7 @@
       <script src="js/monster.js"></script>    	
 	</head>
 
-	<body>
+	<body class="<?php if (isset($_SESSION['user'])) echo 'donate'; else '' ?>">
     <div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
