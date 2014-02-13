@@ -154,9 +154,13 @@ body {
 		}
 
 		.message {
-			margin-bottom: 30px;
+			margin-bottom: 40px;
 			background-color: #ffffff;
-			// border-radius: 5px;
+			border: 1px solid #eee;
+		}
+
+		.message.hide {
+			display: none;
 		}
 	}
 }
@@ -177,6 +181,10 @@ body {
 				display: block;
 				border-radius: 5px;
 				margin-bottom: 50px;
+			}
+
+			.donation.hide {
+				display: none;
 			}
 		}
 	}

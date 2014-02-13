@@ -7810,59 +7810,68 @@ body {
 }
 /* line 156, ../scss/app.scss */
 .hero .action .message {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   background-color: #ffffff;
+  border: 1px solid #eee;
+}
+/* line 162, ../scss/app.scss */
+.hero .action .message.hide {
+  display: none;
 }
 
-/* line 167, ../scss/app.scss */
+/* line 171, ../scss/app.scss */
 .donate .hero .action .social {
   display: none;
 }
-/* line 171, ../scss/app.scss */
+/* line 175, ../scss/app.scss */
 .donate .hero .action .copy {
   display: none;
   margin-bottom: 20px;
 }
-/* line 176, ../scss/app.scss */
+/* line 180, ../scss/app.scss */
 .donate .hero .action .donation {
   display: block;
   border-radius: 5px;
   margin-bottom: 50px;
 }
+/* line 186, ../scss/app.scss */
+.donate .hero .action .donation.hide {
+  display: none;
+}
 
-/* line 185, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 .footer {
   width: 100%;
   max-width: 100%;
   margin-top: -70px;
 }
-/* line 190, ../scss/app.scss */
+/* line 198, ../scss/app.scss */
 .footer .grass {
   height: 45px;
   background: url(../images/footer.png);
   display: block;
   margin-top: 30px;
 }
-/* line 197, ../scss/app.scss */
+/* line 205, ../scss/app.scss */
 .footer .footer-body {
   background: #0f6a2f;
   min-height: 300px;
   margin-top: -1px;
 }
-/* line 202, ../scss/app.scss */
+/* line 210, ../scss/app.scss */
 .footer .footer-body .counter {
   margin-top: 20px;
   font-size: 5rem;
   color: #ffffff;
   font-weight: 700;
 }
-/* line 208, ../scss/app.scss */
+/* line 216, ../scss/app.scss */
 .footer .footer-body .counter .countdown {
   width: 420px;
   display: block;
   margin: auto;
 }
-/* line 214, ../scss/app.scss */
+/* line 222, ../scss/app.scss */
 .footer .footer-body .counter .digit {
   background: #073517;
   padding-left: 5px;
@@ -7870,45 +7879,45 @@ body {
   display: inline-block;
   border-radius: 5px;
 }
-/* line 224, ../scss/app.scss */
+/* line 232, ../scss/app.scss */
 .footer .footer-body .copy {
   margin-top: 20px;
 }
-/* line 226, ../scss/app.scss */
+/* line 234, ../scss/app.scss */
 .footer .footer-body .copy p {
   color: #ffffff;
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 235, ../scss/app.scss */
+  /* line 243, ../scss/app.scss */
   .hero .woman {
     display: none;
   }
-  /* line 241, ../scss/app.scss */
+  /* line 249, ../scss/app.scss */
   .hero .action h1 {
     text-align: center;
   }
-  /* line 245, ../scss/app.scss */
+  /* line 253, ../scss/app.scss */
   .hero .action h1.save {
     font-size: 2.5rem;
   }
-  /* line 249, ../scss/app.scss */
+  /* line 257, ../scss/app.scss */
   .hero .action h1.a-mum {
     margin-top: -20px;
     font-size: 3.5rem;
   }
-  /* line 255, ../scss/app.scss */
+  /* line 263, ../scss/app.scss */
   .hero .action .social a {
     display: block;
     margin: auto;
     width: 152px;
   }
 
-  /* line 266, ../scss/app.scss */
+  /* line 274, ../scss/app.scss */
   .footer .footer-body .counter {
     font-size: 2.5rem;
   }
-  /* line 267, ../scss/app.scss */
+  /* line 275, ../scss/app.scss */
   .footer .footer-body .counter .countdown {
     width: 240px;
   }

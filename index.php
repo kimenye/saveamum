@@ -106,7 +106,11 @@
 		$message = $_POST['message'];
 		if ($donation_id = user_donations_update($donation_id, $message)) {
 			$donation = user_donations_find($donation_id);
-			$_SESSION['user_donation'] = $user_donation;
+			$user = user_find($donation['user_id']);
+			// $_SESSION['user_donation'] = $user_donation;
+
+			$objs = array($donation, $user);
+			return json($objs);
 		}
 	}
 

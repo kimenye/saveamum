@@ -21,6 +21,36 @@ $(function(){
 	        data: $theForm.serialize(),
 	        success: function(data) {
 	            console.log('Yay! Form sent.');
+	            // debugger;
+
+	            data = $.parseJSON(data);
+	            user = data[1];
+	            donation = data[0];
+
+	            $('.donation').addClass('hide');
+	            $('.message .text').html($('.your_message').val());
+	            $('.message').removeClass('hide');
+
+	            if (user.type == "FB") {
+	            	FB.ui(
+					  {
+					    method: 'feed',
+					    name: 'Save a Mum',
+					    link: 'http://saveamum.sprout.co.ke/messages/' + data.id,
+					    picture: 'http://saveamum.sprout.co.ke/images/flower.png',
+					    caption: 'I support the SaveAMum Initiative',
+					    description: $('.your_message').val();
+					  },
+					  function(response) {
+					  	debugger;
+					    if (response && response.post_id) {
+					      console.log('Post was published.');
+					    } else {
+					      console.log('Post was not published.');
+					    }
+					  }
+					);
+	            }
 	        }
 	    });
 
