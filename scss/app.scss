@@ -1,0 +1,229 @@
+@import "settings";
+@import "foundation";
+@import "compass";
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switch",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+
+// .footer {
+// 	background: url("../images/footer.jpg") repeat-x;
+// 	min-height: 103px;
+// 	width: 100%;
+// 	bottom: 0;
+// 	position: relative; 
+// }
+
+
+@mixin roundcorner($value) {
+  border:none;
+  -webkit-border-radius: $value ;
+  -moz-border-radius: $value ;
+  -ms-border-radius: $value ;
+  -o-border-radius: $value ;
+  border-radius: $value ;
+}
+*{ font-family:"Century Gothic", century gothic }
+
+#topBanner { 
+	padding-top: 20px;	
+	padding-bottom: 40px;	
+	left: 0;
+
+	ul { 
+		margin: 0; 
+		max-height: 600px; 
+		overflow: hidden; 
+	}
+	li {
+		img { 
+			width: 100%
+		}
+	}
+
+	.logos {
+		.primary {
+			margin-right: 20px;
+		}
+	}
+}
+.hero {
+	// needs latest Compass, add '@import "compass"' to your scss
+	background-color: #cecece; // Old browsers
+	@include filter-gradient(#cecece, #cecece, horizontal); // IE6-9
+	@include background-image(linear-gradient(left,  #cecece 0%,#ffffff 35%,#ffffff 50%,#efefef 67%,#cecece 100%));
+
+	width: 100%; 
+	max-width: 100%;	
+	padding-bottom: 10px;
+
+	.woman {
+		background-image: url('../images/woman.png');
+		background-position: top left;
+		background-repeat: no-repeat;
+		min-height: 350px;
+	}
+
+	.action {
+		margin-top: 30px;
+		h1 {
+			color: #5a9b45;	
+			font-family:"Century Gothic", century gothic;
+			font-weight: 700;
+		}
+
+		h1.subheader {
+			font-weight: 300;
+		}
+
+		h1.save {
+			margin-bottom: 0px;
+			font-size: 3.5rem;
+		}
+
+		h1.a-mum {
+			margin-top: -35px;
+			font-size: 5.1rem;
+		}
+
+		.social {
+			border-bottom: 2px solid #e6e6e6;
+			padding-bottom: 10px;
+		}
+		
+		.copy {
+			padding-bottom: 25px; 
+			p {
+				color: #5a9b45;
+				padding-top: 10px;
+			}
+		}
+	}
+}
+
+.footer {
+	width: 100%; 
+	max-width: 100%; 
+	margin-top: -70px;
+
+	.grass {		
+		height: 45px; 
+		background: url(../images/footer.png); 
+		display: block; 
+		overflow: hidden; 
+		clear: both; 
+		margin-top: 30px;
+	}
+
+	.footer-body {
+		background: #0f6a2f;
+		min-height: 300px;
+		margin-top: -1px;
+
+		.counter {
+			margin-top: 20px;
+			font-size: 5rem; 
+			color: #ffffff;
+			font-weight: 700;
+
+			.countdown {
+				width: 420px;
+				display: block;
+				margin: auto;
+			}
+			
+			.digit {
+				background: #073517;
+				padding-left: 5px;
+				padding-right: 5px;
+				display: inline-block;
+				border-radius: 5px;
+				// width: 16%;
+			}
+		}
+
+		.copy {
+			margin-top: 20px;
+			p {
+				color: #ffffff;
+			}
+		}
+	}		
+}
+
+@media only screen and (max-width: 40em) { 
+	.hero {
+		.woman {
+			display: block;
+		}
+
+		.action {
+
+			h1 {
+				text-align: center;
+			}
+
+			h1.save {
+				font-size: 2.5rem;
+			}
+
+			h1.a-mum {
+				margin-top: -20px;
+				font-size: 3.5rem;
+			}
+
+			.social {
+				a {
+					display: block;
+					margin: auto;
+					width: 152px;
+				}
+			}			
+		}
+	}
+
+	.footer {
+		.footer-body {
+			.counter {				
+				.countdown {
+					width: 240px;
+				}
+				font-size: 2.5rem;
+			}
+		}
+	}
+}
