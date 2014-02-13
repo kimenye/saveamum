@@ -33,7 +33,7 @@
           <div class="row">
             <div class="small-12 small-centered columns">
               <form class="" action="/donate" method="POST" data-abide>
-                <input type="text" name="mpesa_ref" placeholder="MPESA ref e.g EQ034K443 " required/>
+                <input type="text" name="mpesa_ref" placeholder="MPESA ref e.g EQ034K443 " required pattern="[a-zA-Z]{2}[\d]{2}[a-zA-Z]{2}[\d]{3}" />
                 <input name="user_id" id="user_id" type="hidden" value="<?php if (isset($_SESSION['user'])) echo $_SESSION['user']['id']; else echo '' ?>" />
                 
                 <small class="error">Please enter a valid MPESA transaction reference</small>

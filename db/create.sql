@@ -13,6 +13,7 @@ CREATE TABLE user_donations (
   ref VARCHAR(25) NOT NULL,
   amount DOUBLE,
   user_id INT(11) NOT NULL,
+  message TEXT,
   created_at DATETIME,
   modified_at DATETIME
 );

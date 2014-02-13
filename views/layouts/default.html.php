@@ -4,9 +4,9 @@
 		<title>Buy a Rose | Save a Mum</title>
 		<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    	<link rel="stylesheet" href="stylesheets/app.css" />
-      <script src="js/modernizr.js"></script>     
-      <script src="js/monster.js"></script>    	
+    	<link rel="stylesheet" href="/stylesheets/app.css" />
+      <script src="/js/modernizr.js"></script>     
+      <script src="/js/monster.js"></script>    	
 	</head>
 
 	<body class="<?php if (isset($_SESSION['user'])) echo 'donate'; else '' ?>">
@@ -33,8 +33,8 @@
       <div id="topBanner" class="row">
         <div class="small-11 small-centered large-4 large-centered columns">
           <div class="logos">  
-            <a href="http://chasefoundation.co.ke" class="primary"><img src="images/logo.png" /></a>
-            <a href="http://chasefoundation.co.ke" class="secondary"><img src="images/amref.png" /></a>
+            <a href="http://chasefoundation.co.ke" class="primary"><img src="/images/logo.png" /></a>
+            <a href="http://chasefoundation.co.ke" class="secondary"><img src="/images/amref.png" /></a>
           </div>
         </div>
       </div>
@@ -102,8 +102,8 @@
       </div>
     </div>
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>

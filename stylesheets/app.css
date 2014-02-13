@@ -7808,56 +7808,61 @@ body {
 .hero .action .donation {
   display: none;
 }
+/* line 156, ../scss/app.scss */
+.hero .action .message {
+  margin-bottom: 30px;
+  background-color: #ffffff;
+}
 
-/* line 161, ../scss/app.scss */
+/* line 167, ../scss/app.scss */
 .donate .hero .action .social {
   display: none;
 }
-/* line 165, ../scss/app.scss */
+/* line 171, ../scss/app.scss */
 .donate .hero .action .copy {
   display: none;
   margin-bottom: 20px;
 }
-/* line 170, ../scss/app.scss */
+/* line 176, ../scss/app.scss */
 .donate .hero .action .donation {
   display: block;
   border-radius: 5px;
   margin-bottom: 50px;
 }
 
-/* line 179, ../scss/app.scss */
+/* line 185, ../scss/app.scss */
 .footer {
   width: 100%;
   max-width: 100%;
   margin-top: -70px;
 }
-/* line 184, ../scss/app.scss */
+/* line 190, ../scss/app.scss */
 .footer .grass {
   height: 45px;
   background: url(../images/footer.png);
   display: block;
   margin-top: 30px;
 }
-/* line 191, ../scss/app.scss */
+/* line 197, ../scss/app.scss */
 .footer .footer-body {
   background: #0f6a2f;
   min-height: 300px;
   margin-top: -1px;
 }
-/* line 196, ../scss/app.scss */
+/* line 202, ../scss/app.scss */
 .footer .footer-body .counter {
   margin-top: 20px;
   font-size: 5rem;
   color: #ffffff;
   font-weight: 700;
 }
-/* line 202, ../scss/app.scss */
+/* line 208, ../scss/app.scss */
 .footer .footer-body .counter .countdown {
   width: 420px;
   display: block;
   margin: auto;
 }
-/* line 208, ../scss/app.scss */
+/* line 214, ../scss/app.scss */
 .footer .footer-body .counter .digit {
   background: #073517;
   padding-left: 5px;
@@ -7865,45 +7870,45 @@ body {
   display: inline-block;
   border-radius: 5px;
 }
-/* line 218, ../scss/app.scss */
+/* line 224, ../scss/app.scss */
 .footer .footer-body .copy {
   margin-top: 20px;
 }
-/* line 220, ../scss/app.scss */
+/* line 226, ../scss/app.scss */
 .footer .footer-body .copy p {
   color: #ffffff;
 }
 
 @media only screen and (max-width: 40em) {
-  /* line 229, ../scss/app.scss */
+  /* line 235, ../scss/app.scss */
   .hero .woman {
     display: none;
   }
-  /* line 235, ../scss/app.scss */
+  /* line 241, ../scss/app.scss */
   .hero .action h1 {
     text-align: center;
   }
-  /* line 239, ../scss/app.scss */
+  /* line 245, ../scss/app.scss */
   .hero .action h1.save {
     font-size: 2.5rem;
   }
-  /* line 243, ../scss/app.scss */
+  /* line 249, ../scss/app.scss */
   .hero .action h1.a-mum {
     margin-top: -20px;
     font-size: 3.5rem;
   }
-  /* line 249, ../scss/app.scss */
+  /* line 255, ../scss/app.scss */
   .hero .action .social a {
     display: block;
     margin: auto;
     width: 152px;
   }
 
-  /* line 260, ../scss/app.scss */
+  /* line 266, ../scss/app.scss */
   .footer .footer-body .counter {
     font-size: 2.5rem;
   }
-  /* line 261, ../scss/app.scss */
+  /* line 267, ../scss/app.scss */
   .footer .footer-body .counter .countdown {
     width: 240px;
   }

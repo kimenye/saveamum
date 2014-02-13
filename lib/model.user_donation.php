@@ -79,20 +79,19 @@ SQL;
  * @param array $data
  * @return true or false
  */
-// function user_update($user_id, $data)
-// {
-// 	$db = option('db_conn');
-// 	$sql = <<<SQL
-// 	UPDATE `posts`
-// 	SET title = :title, body = :body, modified_at = DATETIME('NOW', 'localtime')
-// 	WHERE id = :id
-// SQL;
-// 	$stmt = $db->prepare($sql);
-// 	$stmt->bindValue(':id', $post_id, PDO::PARAM_INT);
-// 	$stmt->bindValue(':title', $data['title'], PDO::PARAM_STR);
-// 	$stmt->bindValue(':body', $data['body'], PDO::PARAM_STR);
-// 	return $stmt->execute();
-// }
+function user_donations_update($user_id, $message)
+{
+	$db = option('db_conn');
+	$sql = <<<SQL
+	UPDATE `user_donations`
+	SET message = :message, modified_at = NOW()
+	WHERE id = :id
+SQL;
+	$stmt = $db->prepare($sql);
+	$stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
+	$stmt->bindValue(':message', $message, PDO::PARAM_STR);
+	return $stmt->execute();
+}
 
 /**
  * Delete a row in posts table

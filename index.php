@@ -53,7 +53,7 @@
 
 	dispatch('/twitter', 'twitter');
 	function twitter() {
-		session_start();
+		// session_start();
  
 		if(!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empty($_SESSION['oauth_token_secret'])) { 
 			//we are in the callback???		 
@@ -63,7 +63,7 @@
 		 
 		 	$localhost = preg_match('/^localhost(\:\d+)?/', $_SERVER['HTTP_HOST']);
 			$env =  $localhost ? ENV_DEVELOPMENT : ENV_PRODUCTION;
-		 	$url = $env == ENV_PRODUCTION ? "http://saveamum.sprout.co.ke/callback/" : "http://localhost:8000/callback/";
+		 	$url = $env == ENV_PRODUCTION ? "http://saveamum.sprout.co.ke/callback/" : "http://localhost:8000/saveamum/callback/";
 
 		    $request_token = $twoauth->getRequestToken($url);
 		 
@@ -99,6 +99,31 @@
 		}
 	}
 
+	dispatch_post('/share', 'users_share');
+	function users_share()
+	{
+		$donation_id = $_POST['user_donation_id'];
+		$message = $_POST['message'];
+		if ($donation_id = user_donations_update($donation_id, $message)) {
+			$donation = user_donations_find($donation_id);
+			$_SESSION['user_donation'] = $user_donation;
+		}
+	}
+
+	dispatch('/messages/:id', 'messages');
+	function messages() 
+	{
+		if( $user_donation = user_donations_find(params('id')) )
+		{
+			$user = user_find($user_donation['user_id']);
+
+			set('user_donation',$user_donation);
+			set('user', $user);
+
+			return html('home/post.html.php');
+		}
+	}
+
 
 	# matches POST /users
 	dispatch_post('/users', 'users_create');
@@ -117,6 +142,7 @@
   	function donate() {
   		if ($user_donation_id = user_donations_create('MPESA', $_POST['mpesa_ref'], 50, $_POST['user_id'])) {  			
   			$user_donation = user_donations_find($user_donation_id);
+  			$_SESSION['user_donation'] = $user_donation;
   			redirect_to('share');	
   		}
   		

@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  Options +Indexes
+  RewriteEngine on
+  # RewriteBase /path/ # If website in subdirectory, uncomment and change this
+  RewriteCond %{SCRIPT_FILENAME} !-f
+  RewriteCond %{SCRIPT_FILENAME} !-d
+  #RewriteRule ^(.*)$   index.php?/$1    [NC,L]
+  #RewriteRule ^.*$ index.php [L] 
+  RewriteRule ^(.*)$   index.php?uri=/$1    [NC,L,QSA]
+</IfModule>

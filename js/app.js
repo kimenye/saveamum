@@ -8,7 +8,25 @@ $(function(){
 
 	$('.fb').click(function() {
 		fb_login();
-	})
+	});
+
+
+	$('#share_form').submit(function() {
+		$theForm = $(this);
+
+		// send xhr request
+	    $.ajax({
+	        type: $theForm.attr('method'),
+	        url: $theForm.attr('action'),
+	        data: $theForm.serialize(),
+	        success: function(data) {
+	            console.log('Yay! Form sent.');
+	        }
+	    });
+
+	    // prevent submitting again
+	    return false;
+	});
 
 	function fb_login(){
  	   FB.login(function(response) {
@@ -31,15 +49,16 @@ $(function(){
 	          			data: form_data,
 	          			success: function(data, textStatus) {
 	          				// debugger;
-	          				console.log("Success : ", data);
+	          				// console.log("Success : ", data);
 	          				data = $.parseJSON(data); //TODO: Fix double parsing...
 	          				user = $.parseJSON(data);
 	          				monster.set('loggedIn', 'yes');
 	          				monster.set('loggedInUser', user);
+	          				check_login();
 	          			},
 	          			error: function(jqXHR, textStatus, error) {
 	          				// debugger;
-	          				console.log("Error : ", error);
+	          				// console.log("Error : ", error);
 	          			}
 	          		});
 	            });
@@ -57,7 +76,8 @@ $(function(){
 		if (monster.get('loggedIn') == "yes") {
 			//the user has logged in -- TODO: should probably set the cookies to expire
 			$('body').addClass("donate");
-			$('#user_id').val(monster.get('loggedInUser').id)
+			if (monster.get('loggedInUser') != null)
+				$('#user_id').val(monster.get('loggedInUser').id);
 		}
 	}
 
