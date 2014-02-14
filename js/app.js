@@ -36,13 +36,13 @@ $(function(){
 					  {
 					    method: 'feed',
 					    name: 'Save a Mum',
-					    link: 'http://saveamum.sprout.co.ke/messages/' + data.id,
+					    link: 'http://saveamum.sprout.co.ke/messages/' + donation.id,
 					    picture: 'http://saveamum.sprout.co.ke/images/flower.png',
 					    caption: 'I support the SaveAMum Initiative',
 					    description: $('.your_message').val()
 					  },
 					  function(response) {
-					  	debugger;
+					  	// debugger;
 					    if (response && response.post_id) {
 					      console.log('Post was published.');
 					    } else {
@@ -52,7 +52,7 @@ $(function(){
 					);
 	            } else {
 			    	twttr.widgets.createShareButton(
-					  'http://saveamum.sprout.co.ke/messages/' + data.id,
+					  'http://saveamum.sprout.co.ke/messages/' + donation.id,
 					  document.getElementById('tweet-button'),
 					  function (el) {
 					    console.log("Button created.")
