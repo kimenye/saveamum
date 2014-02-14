@@ -27,11 +27,18 @@
          js.src = "//connect.facebook.net/en_US/all.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+      window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs"));
     </script>
     <div class="hero">
       <!-- Top Banner -->
       <div id="topBanner" class="row">
-        <div class="small-11 small-centered large-4 large-centered columns">
+        <div class="small-11 small-centered medium-5 medium-centered large-4 large-centered columns">
           <div class="logos">  
             <a href="http://chasefoundation.co.ke" class="primary"><img src="/images/logo.png" /></a>
             <a href="http://chasefoundation.co.ke" class="secondary"><img src="/images/amref.png" /></a>
@@ -43,7 +50,7 @@
       
       <!-- Main CTAs -->
       <div class="row container">
-        <div class="small-12 large-4 medium-4 columns woman-container">
+        <div class="small-12 large-4 medium-5 columns woman-container">
           <div class="woman">
           </div>
         </div>

@@ -50,6 +50,18 @@ $(function(){
 					    }
 					  }
 					);
+	            } else {
+			    	twttr.widgets.createShareButton(
+					  'http://saveamum.sprout.co.ke/messages/' + data.id,
+					  document.getElementById('tweet-button'),
+					  function (el) {
+					    console.log("Button created.")
+					  },
+					  {
+					    count: 'none',
+					    text: 'I helped to #SaveAMum with my donation'
+					  }
+					);
 	            }
 	        }
 	    });

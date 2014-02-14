@@ -14,6 +14,7 @@
               <div class="large-9 small-8 columns">
                 <h4 class="subheader">Your Message</h4>
                 <p class="text"></p>
+                <div id="tweet-button"></div>
             </div>
           </div>
         </div>
