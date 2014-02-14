@@ -11,9 +11,9 @@
         				<div class="large-3 small-4 columns">
         					<img src="/images/flower.png" />
         				</div>
-        				<div class="large-9 small-8 columns">
+        				<div class="large-9 small-8 columns" id="<?php echo $user_donation['id']; ?>">
         					<h4 class="subheader">Your Message</h4>
-        					<p><?php echo $user_donation['message'] ?></p>
+        					<p><?php echo $user_donation['message']; ?></p>
         				</div>
         			</div>
         		</div>
